@@ -1,0 +1,25 @@
+#!/usr/bin/env fish
+python3 -m doctest -v (basename (status -f))
+exit
+"""
+>>> MRUCache = __import__('4-mru_cache').MRUCache
+>>> my_cache = MRUCache()
+>>> my_cache.put("A", "Hello")
+>>> my_cache.put("B", "World")
+>>> my_cache.put("C", "Holberton")
+>>> my_cache.put("D", "School")
+>>> my_cache.print_cache()
+Current cache:
+A: Hello
+B: World
+C: Holberton
+D: School
+
+>>> print(my_cache.get("B"))
+World
+
+>>> my_cache.put("E", "Battery")
+DISCARD: B
+
+>>> my_cache.print_cache()
+Current cache:
